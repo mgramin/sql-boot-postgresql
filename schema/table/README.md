@@ -1,6 +1,6 @@
 ````sql
-select t.table_schema                 as "@schema"
-     , t.table_name                   as "@table"
+select t.table_schema   as "@schema"
+     , t.table_name     as "@table"
      , t.table_schema
      , t.table_name
      , t.table_catalog
