@@ -1,17 +1,17 @@
 ````sql
-select t.table_schema     as "schema"
-     , t.table_name       as "table"
-     , t.table_schema     as "@table_schema"
-     , t.table_name       as "@table_name"
-     , t.table_catalog    as "@table_catalog"
-     , t.table_type       as "@table_type"
-     , t.self_referencing_column_name as "@self_referencing_column_name"
-     , t.reference_generation         as "@reference_generation"
-     , t.user_defined_type_catalog    as "@user_defined_type_catalog"
-     , t.user_defined_type_schema     as "@user_defined_type_schema"
-     , t.user_defined_type_name       as "@user_defined_type_name"
-     , t.is_insertable_into           as "@is_insertable_into"
-     , t.is_typed                     as "@is_typed"
+select t.table_schema                 as "@schema"
+     , t.table_name                   as "@table"
+     , t.table_schema
+     , t.table_name
+     , t.table_catalog
+     , t.table_type
+     , t.self_referencing_column_name
+     , t.reference_generation
+     , t.user_defined_type_catalog
+     , t.user_defined_type_schema
+     , t.user_defined_type_name
+     , t.is_insertable_into
+     , t.is_typed
   from information_schema.tables t
  where t.table_type='BASE TABLE'
    and lower(t.table_schema) like '$schema'
