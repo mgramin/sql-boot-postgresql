@@ -1,9 +1,9 @@
 https://www.postgresql.org/docs/current/static/infoschema-table-constraints.html
 
 ````sql
-select c.constraint_schema   as "schema"
-     , c.table_name          as "table"
-     , c.constraint_name     as "pk"
+select c.constraint_schema   as "@schema"
+     , c.table_name          as "@table"
+     , c.constraint_name     as "@pk"
      , c.constraint_catalog
      , c.constraint_schema
      , c.constraint_name
