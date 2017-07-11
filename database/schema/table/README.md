@@ -1,9 +1,11 @@
+https://www.postgresql.org/docs/current/static/infoschema-tables.html
+
 ````sql
 select t.table_schema   as "@schema"
      , t.table_name     as "@table"
-     , t.table_schema
-     , t.table_name
      , t.table_catalog
+     , t.table_schema
+     , t.table_name     
      , t.table_type
      , t.self_referencing_column_name
      , t.reference_generation
