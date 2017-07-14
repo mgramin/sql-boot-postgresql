@@ -1,4 +1,6 @@
-https://www.postgresql.org/docs/current/static/infoschema-table-constraints.html
+# Primary key
+
+https://www.postgresql.org/docs/current/static/view-pg-indexes.html
 
 ````sql
 select c.constraint_schema   as "@schema"
