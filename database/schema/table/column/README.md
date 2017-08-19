@@ -54,8 +54,8 @@ select c.table_schema     as "schema"
  where t.table_schema = c.table_schema
    and t.table_name = c.table_name
    and t.table_type='BASE TABLE'
-   and lower(c.table_schema) like '$schema'
-   and lower(c.table_name) like '$table'
-   and lower(c.column_name) like '$column'
+--   and lower(c.table_schema) like '$schema'
+--   and lower(c.table_name) like '$table'
+--   and lower(c.column_name) like '$column'
  order by c.ordinal_position asc
 ````

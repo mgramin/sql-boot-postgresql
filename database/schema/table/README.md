@@ -18,6 +18,6 @@ select t.table_schema   as "@schema"
      , t.is_typed
   from information_schema.tables t
  where t.table_type='BASE TABLE'
-   and lower(t.table_schema) like '$schema'
-   and lower(t.table_name) like '$table'
+--   and lower(t.table_schema) like '$schema'
+--   and lower(t.table_name) like '$table'
 ````
