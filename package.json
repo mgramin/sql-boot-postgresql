@@ -1,0 +1,18 @@
+{
+  "author": "Maksim Gramin <mgramin@gmail.com>",
+  "name": "sql-boot.postgres.configuration",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sql-boot/postgres"
+  },
+  "engines": {
+    "node": ">= 0.4"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vows": "0.6.x"
+  }
+}

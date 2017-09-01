@@ -1,0 +1,5 @@
+conf:
+  baseFolder: file:conf/postgresql/database
+  url: jdbc:postgresql://db:5432/demo
+  user: postgres
+  password: postgres
