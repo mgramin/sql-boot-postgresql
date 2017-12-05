@@ -2,7 +2,7 @@ conf:
   connections:
     - name: demodb    
       baseFolder: file:conf/postgresql/database
-      url: jdbc:postgresql://db:5432/demo
+      url: jdbc:postgresql://db:54321/demo
       user: postgres
       password: postgres
 

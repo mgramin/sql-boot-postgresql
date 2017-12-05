@@ -3,7 +3,7 @@ services:
   db:
     image: mgramin/postgres-pro-demodb-small
     ports:
-      - "5432:5432"
+      - "54321:5432"
     networks:
       mynetwork:
         aliases:
