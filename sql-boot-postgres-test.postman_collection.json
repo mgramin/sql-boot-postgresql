@@ -15,13 +15,13 @@
 					"name": "get all indexes in json from schema",
 					"request": {
 						"url": {
-							"raw": "http://localhost:8080/api/index/bookings?type=json",
+							"raw": "http://localhost:8007/api/demodb/index/bookings?type=json",
 							"protocol": "http",
 							"auth": {},
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8007",
 							"path": [
 								"api",
 								"index",
@@ -71,13 +71,13 @@
 					],
 					"request": {
 						"url": {
-							"raw": "http://localhost:8080/api/pk/bookings?type=json",
+							"raw": "http://localhost:8007/api/demodb/pk/bookings?type=json",
 							"protocol": "http",
 							"auth": {},
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8007",
 							"path": [
 								"api",
 								"pk",
@@ -109,7 +109,7 @@
 								{
 					"name": "get all db tables ddl",
 					"request": {
-						"url": "http://localhost:8080/api/table",
+						"url": "http://localhost:8007/api/demodb/table",
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -123,7 +123,7 @@
 				{
 					"name": "get one table ddl",
 					"request": {
-						"url": "http://localhost:8080/api/table/bookings.flights",
+						"url": "http://localhost:8007/api/demodb/table/bookings.flights",
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -137,7 +137,7 @@
 				{
 					"name": "get one table columns ddl",
 					"request": {
-						"url": "http://localhost:8080/api/column/bookings.flights",
+						"url": "http://localhost:8007/api/demodb/column/bookings.flights",
 						"method": "GET",
 						"header": [],
 						"body": {

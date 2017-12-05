@@ -1,10 +1,9 @@
 version: '3'
 services:
-
   db:
     image: mgramin/postgres-pro-demodb-small
     ports:
-      - 5432
+      - "5432:5432"
     networks:
       mynetwork:
         aliases:
@@ -14,18 +13,16 @@ services:
   sql-boot:
     build: . 
     ports:
-      - "8080:8080"
+      - "8007:8007"
     networks:
       - mynetwork
     depends_on:
       - db
     links:
       - db
-    environment:
-      profile: postgres
-      db_dev_user: postgres
-      db_dev_password: postgres
-      db_dev_url: jdbc:postgresql://db:5432/demo
+    volumes:
+      - ./:/sql-boot/conf/postgresql
+      - ./application.yml:/sql-boot/application.yml
 
 
 networks:
