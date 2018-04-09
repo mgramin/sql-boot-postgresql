@@ -2,10 +2,11 @@
 
 https://www.postgresql.org/docs/current/static/infoschema-columns.html
 
+### get_all_columns
 ````sql
-select c.table_schema     as "schema"
-     , c.table_name       as "table"
-     , c.column_name      as "column"
+select c.table_schema     as "@schema"
+     , c.table_name       as "@table"
+     , c.column_name      as "@column"
      , c.table_catalog
      , c.table_schema
      , c.table_name
@@ -54,8 +55,8 @@ select c.table_schema     as "schema"
  where t.table_schema = c.table_schema
    and t.table_name = c.table_name
    and t.table_type='BASE TABLE'
---   and lower(c.table_schema) like '$schema'
---   and lower(c.table_name) like '$table'
---   and lower(c.column_name) like '$column'
+   --and lower(c.table_schema) like 'schema'
+   --and lower(c.table_name) like 'table'
+   --and lower(c.column_name) like 'column'
  order by c.ordinal_position asc
 ````

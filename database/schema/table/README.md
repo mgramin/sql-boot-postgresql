@@ -2,6 +2,7 @@
 
 https://www.postgresql.org/docs/current/static/infoschema-tables.html
 
+### get_all_tables
 ````sql
 select t.table_schema   as "@schema"
      , t.table_name     as "@table"
