@@ -20,6 +20,8 @@ select t.table_schema   as "@schema"
      -- , t.commit_action                  /* Not yet implemented */
   from information_schema.tables t
  where t.table_type='BASE TABLE'
+   and lower(t.table_schema) like lower('${uri.path(0)}')
+   and lower(t.table_name) like lower('${uri.path(1)}')
 ````
 
 
