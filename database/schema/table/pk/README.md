@@ -17,7 +17,7 @@ select c.constraint_schema   as "@schema"
      , c.initially_deferred
   from information_schema.table_constraints c
  where constraint_type  = 'PRIMARY KEY'
---   and table_schema like '$schema'
---   and table_name like '$table'
---   and constraint_name like '$pk'
+   and lower(c.constraint_schema) like lower('${uri.path(0)}')
+   and lower(c.table_name) like lower('${uri.path(1)}')
+   and lower(c.constraint_name) like lower('${uri.path(2)}')
 ````
