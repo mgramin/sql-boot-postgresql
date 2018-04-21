@@ -1,0 +1,10 @@
+conf:
+  connections:
+    - name: demodb
+      baseFolder: file:conf/sql-boot-postgresql/database
+      url: jdbc:postgresql://db:5432/demo
+      user: postgres
+      password: postgres
+
+server:
+     port: 8007
