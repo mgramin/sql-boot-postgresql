@@ -4,7 +4,7 @@
     "canSave": true,
     "canEdit": true,
     "canStar": true,
-    "slug": "oracle_process",
+    "slug": "postgres_database_stat",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2017-12-11T21:55:20Z",
     "updated": "2017-12-11T21:55:20Z",
@@ -85,7 +85,7 @@
                 ],
                 "orderByTime": "ASC",
                 "policy": "default",
-                "query": " SELECT pga_used_mem/1024/1024\n  FROM \"httpjson_oracle_process\"\nWHERE pga_used_mem > 1024*1024\n GROUP BY pid, pname",
+                "query": "select blks_read from \"httpjson_postgres_database_stat\" group by datname",
                 "rawQuery": true,
                 "refId": "A",
                 "resultFormat": "time_series",
@@ -187,7 +187,7 @@
       ]
     },
     "timezone": "",
-    "title": "oracle_process",
+    "title": "postgres_database_stat",
     "version": 1
   }
 }
