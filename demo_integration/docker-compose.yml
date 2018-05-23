@@ -1,0 +1,87 @@
+version: '3'
+services:
+
+  sql-boot:
+    build: .
+    ports:
+      - "8007:8007"
+    networks:
+      - mynetwork
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - ./conf:/sql-boot/conf
+      - ./application.yml:/sql-boot/application.yml
+
+
+  db:
+    image: mgramin/postgres-pro-demodb-small
+    ports:
+      - "5432:5432"
+    networks:
+      mynetwork:
+        aliases:
+          - postgresql_server
+    hostname: postgresql_server
+
+
+  postgresql-db-sport:
+    image: mgramin/postgres-sport
+    ports:
+      - "9876:5432"
+    networks:
+      mynetwork:
+        aliases:
+          - postgresql_server_sport
+    hostname: postgresql_server_sport
+
+
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+    networks:
+      - mynetwork
+    env_file:
+      - 'env.influxdb'
+
+
+  telegraf:
+    image: telegraf:latest
+    container_name: telegraf
+    links:
+      - influxdb
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    networks:
+      - mynetwork
+
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+    env_file:
+      - 'env.grafana'
+    links:
+      - influxdb
+
+
+  swagger-editor:
+    image: swaggerapi/swagger-editor:latest
+    container_name: swagger-editor
+    ports:
+      - "8888:8080"
+
+
+networks:
+  mynetwork:
+    driver: bridge
