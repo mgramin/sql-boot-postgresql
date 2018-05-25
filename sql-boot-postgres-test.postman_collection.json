@@ -1,180 +1,367 @@
 {
 	"info": {
-		"_postman_id": "56a103ea-0f02-4769-bd23-2700199bc212",
+		"_postman_id": "49343978-45c0-4e0c-8bd9-76ded37ff00c",
 		"name": "sql-boot-postgres-test",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "index",
-			"description": null,
+			"name": "schema",
+			"description": "",
 			"item": [
 				{
-					"name": "get all indexes in json from schema",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:8007/api/demodb/index/bookings?type=json",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8007",
-							"path": [
-								"api",
-								"demodb",
-								"index",
-								"bookings"
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "json"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "pk",
-			"description": null,
-			"item": [
-				{
-					"name": "get all pk in json from schema",
-					"event": [
+					"name": "table",
+					"description": null,
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;",
-									"",
-									"tests[\"Content-Type is application/json\"] = ",
-									"      responseHeaders[\"Content-Type\"].has(\"application/json\");"
-								]
-							}
+							"name": "pk",
+							"description": "",
+							"item": [
+								{
+									"name": "get all pk in json from schema",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 200\"] = responseCode.code === 200;",
+													"",
+													"tests[\"Content-Type is application/json\"] = ",
+													"      responseHeaders[\"Content-Type\"].has(\"application/json\");"
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:8007/api/demodb/pk/bookings?type=json",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8007",
+											"path": [
+												"api",
+												"demodb",
+												"pk",
+												"bookings"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "json"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "index",
+							"description": "",
+							"item": [
+								{
+									"name": "get all indexes in json from schema",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://localhost:8007/api/demodb/index/bookings?type=json",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8007",
+											"path": [
+												"api",
+												"demodb",
+												"index",
+												"bookings"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "json"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "get all tables",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8007/api/demodb/table"
+							},
+							"response": []
+						},
+						{
+							"name": "get all tables size",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6c800d-1daf-4745-937d-38eaf5c3a562",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"tests[\"Content-Type is application/json\"] = ",
+											"      responseHeaders[\"Content-Type\"].has(\"application/json\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8007/api/demodb/table/bookings/size"
+							},
+							"response": []
+						},
+						{
+							"name": "get all tables relations",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6c800d-1daf-4745-937d-38eaf5c3a562",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"tests[\"Content-Type is application/json\"] = ",
+											"      responseHeaders[\"Content-Type\"].has(\"application/json\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8007/api/demodb/table/bookings/depends"
+							},
+							"response": []
+						},
+						{
+							"name": "get all tables without statistics",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6c800d-1daf-4745-937d-38eaf5c3a562",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"tests[\"Content-Type is application/json\"] = ",
+											"      responseHeaders[\"Content-Type\"].has(\"application/json\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8007/api/demodb/table/bookings/no_stat"
+							},
+							"response": []
+						},
+						{
+							"name": "get one table ddl",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8007/api/demodb/table/bookings.flights"
+							},
+							"response": []
+						},
+						{
+							"name": "get one table columns ddl",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8007/api/demodb/column/bookings.flights"
+							},
+							"response": []
+						},
+						{
+							"name": "get all tables bloat",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d6c800d-1daf-4745-937d-38eaf5c3a562",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"tests[\"Content-Type is application/json\"] = ",
+											"      responseHeaders[\"Content-Type\"].has(\"application/json\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8007/api/demodb/headers/table/bookings/bloat"
+							},
+							"response": []
 						}
 					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:8007/api/demodb/pk/bookings?type=json",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8007",
-							"path": [
-								"api",
-								"demodb",
-								"pk",
-								"bookings"
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "json"
-								}
-							]
-						}
-					},
-					"response": []
+					"_postman_isSubFolder": true
 				}
 			]
 		},
 		{
-			"name": "table",
-			"description": null,
+			"name": "instance",
+			"description": "",
 			"item": [
 				{
-					"name": "get all db tables ddl",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:8007/api/demodb/table",
-							"protocol": "http",
-							"host": [
-								"localhost"
+					"name": "database",
+					"description": "",
+					"item": [
+						{
+							"name": "process",
+							"description": "",
+							"item": [
+								{
+									"name": "get all process",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b8d3c719-c197-4a07-ac37-87110e148b2d",
+												"type": "text/javascript",
+												"exec": [
+													"tests[\"Status code is 200\"] = responseCode.code === 200;",
+													"",
+													"tests[\"Content-Type is application/json\"] = ",
+													"      responseHeaders[\"Content-Type\"].has(\"application/json\");"
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": "http://localhost:8007/api/demodb/headers/process"
+									},
+									"response": []
+								}
 							],
-							"port": "8007",
-							"path": [
-								"api",
-								"demodb",
-								"table"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get one table ddl",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+							"_postman_isSubFolder": true
 						},
-						"url": {
-							"raw": "http://localhost:8007/api/demodb/table/bookings.flights",
-							"protocol": "http",
-							"host": [
-								"localhost"
+						{
+							"name": "get all databases",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "05141719-58de-43fa-9fee-c6e90be8bca7",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"tests[\"Content-Type is application/json\"] = ",
+											"      responseHeaders[\"Content-Type\"].has(\"application/json\");"
+										]
+									}
+								}
 							],
-							"port": "8007",
-							"path": [
-								"api",
-								"demodb",
-								"table",
-								"bookings.flights"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get one table columns ddl",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8007/api/demodb/headers/database"
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8007/api/demodb/column/bookings.flights",
-							"protocol": "http",
-							"host": [
-								"localhost"
+						{
+							"name": "get all databases stat",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "05141719-58de-43fa-9fee-c6e90be8bca7",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"tests[\"Content-Type is application/json\"] = ",
+											"      responseHeaders[\"Content-Type\"].has(\"application/json\");"
+										]
+									}
+								}
 							],
-							"port": "8007",
-							"path": [
-								"api",
-								"demodb",
-								"column",
-								"bookings.flights"
-							]
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://localhost:8007/api/demodb/headers/database/*/stat"
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		}
